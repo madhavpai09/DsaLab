@@ -38,9 +38,11 @@ void push(struct Stack* stack, int item)
 
 int pop(struct Stack* stack) 
 { 
-    if (isEmpty(stack)) 
-        return 0; 
+    if (isEmpty(stack)) { 
+        return 0;}
+    else{
     return stack->array[stack->top--]; 
+    }
 } 
 
 
@@ -54,7 +56,8 @@ int peek(struct Stack* stack)
 int main() 
 { 
     struct Stack* stack = createStack(100); 
-    int choice=0,n;
+    int choice=0;
+    int n;
     while(choice<=3)
     {
     printf("\nEnter: \n1.Push \n2.Pop \n3.Display\n\nEnter any negative number to exit.");
@@ -62,7 +65,7 @@ int main()
     switch (choice)
     {
         case 1: printf("Enter your value");
-                scanf("top element: %d",&n);
+                scanf("%d",&n);
                 push(stack,n);
                 break;
         case 2: pop(stack);
