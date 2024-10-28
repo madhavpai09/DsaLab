@@ -41,32 +41,38 @@ void pop(Stack* stack) {
       
         Node* temp = stack->head;
         stack->head = stack->head->next;
-        free(temp);
     }
 }
 
 int peek(Stack* stack) {
-    if (!isEmpty(stack))
-        return stack->head->data;
-    else {
+    if (!isEmpty(stack)){
+        printf("The element: %d",stack->head->data);
+        return 0;}
+    else{
         printf("\nStack is empty");
         return 0;
     }
 }
-int main() {
+int main()
+{
     Stack stack;
-    initializeStack(&stack);
-    push(&stack, 11);
-    push(&stack, 22);
-    push(&stack, 33);
-    push(&stack, 44);
-
-    printf("Top element is %d\n", peek(&stack));
-
-      printf("Removing two elements...\n");
-    pop(&stack);
-    pop(&stack);
-    printf("Top element is %d\n", peek(&stack));
-
+    int choice=0,n;
+    while(choice<=3)
+    {
+    printf("\nEnter: \n1.Push \n2.Pop \n3.Display\n\nEnter any negative number to exit.");
+    scanf("%d",&choice);
+    switch (choice)
+    {
+        case 1: printf("Enter your value");
+                scanf("%d",&n);
+                push(&stack,n);
+                break;
+        case 2: pop(&stack);
+                break;
+        case 3: (peek(&stack));
+                break;
+        default:exit(0);
+    }
+    }
     return 0;
 }
